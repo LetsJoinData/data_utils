@@ -3,7 +3,7 @@ import logging
 import os
 
 
-DEFAULT_DOWNLOAD_FOLDER = os.environ["DEFAULT_DOWNLOAD_FOLDER"]
+DEFAULT_DOWNLOAD_FOLDER = os.environ.get("DEFAULT_DOWNLOAD_FOLDER",".tmp")
 
 class SFTP(pysftp.Connection):
     
