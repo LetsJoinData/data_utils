@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='data_utils',
       version='0.1',
       description='Base Python Utils for moving data to cloud databases',
-      url='http://github.com/storborg/funniest',
+      url='https://github.com/LetsJoinData/data_utils',
       author='Lets Join Data',
       author_email='leon@letsjoindata.com',
       license='MIT',
