@@ -30,7 +30,7 @@ class SFTP(pysftp.Connection):
     
 
     def __exit__(self, *args):
-        pass
+        pass 
 
 
     def list_files(self, path=".", extention=None, order_last_modified=True):
