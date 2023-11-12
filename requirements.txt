@@ -1,8 +1,0 @@
-envdir
-pandas
-snowflake-connector-python
-sqlalchemy
-snowflake-connector-python[pandas]
-snowflake-sqlalchemy
-pysftp
-retrying
