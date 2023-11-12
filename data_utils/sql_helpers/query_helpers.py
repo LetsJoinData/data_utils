@@ -1,5 +1,5 @@
 import logging
-from sql_helpers.templates import (SNOWFLAKE_LOAD_FILE_TO_STAGE, SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE,
+from data_utils.sql_helpers.templates import (SNOWFLAKE_LOAD_FILE_TO_STAGE, SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE,
                                              SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE_WITH_COLUMNS_SPECIFIED)
 import os
 import logging
