@@ -8,7 +8,7 @@ setup(name='data_utils',
       author_email='leon@letsjoindata.com',
       license='MIT',
       packages=['data_utils'],
-      include=["data_utils/*"],
+      include=["*"],
       install_requires=[
           'pandas',
           'snowflake-connector-python',
