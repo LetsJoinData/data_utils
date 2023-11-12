@@ -1,5 +1,5 @@
-from data_engine.sql_helpers.query_helpers import copy_snowflake_stage_file_to_table, add_file_to_snowflake_stage
-from data_engine.services.sftp import SFTP
+from data_utils.sql_helpers.query_helpers import copy_snowflake_stage_file_to_table, add_file_to_snowflake_stage
+from data_utils.services.sftp import SFTP
 import os
 import logging
 import pandas as pd
