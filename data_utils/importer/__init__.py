@@ -12,7 +12,7 @@ class SNOWFLAKE_LOADER:
     CREATED_AT_COLUMN_ALIAS = 'DW_CREATED_AT'
 
 
-    def __init__(self, cursor, schema, table, stage):
+    def __init__(self, cursor):
         self.cursor = cursor
 
 
@@ -59,7 +59,7 @@ class SNOWFLAKE_LOADER:
 
 
 class SFTP_SNOWFLAKE_LOADER(SNOWFLAKE_LOADER):
-    def __init__(self, schema, table, stage, sftp_connection, **sftp_other_sftp_kwargs):
+    def __init__(self, sftp_connection, **sftp_other_sftp_kwargs):
 
         self.sftp_other_sftp_kwargs = sftp_other_sftp_kwargs
         self.sftp_connection = sftp_connection
