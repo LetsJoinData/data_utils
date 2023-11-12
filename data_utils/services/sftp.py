@@ -29,7 +29,7 @@ class SFTP(pysftp.Connection):
         return self
     
 
-    def __exit__(self, *args):
+    def __exit__(self, *args): 
         pass 
 
 
