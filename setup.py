@@ -7,7 +7,7 @@ setup(name='data_utils',
       author='Lets Join Data',
       author_email='leon@letsjoindata.com',
       license='MIT',
-      packages=['data_utils/databases', 'data_utils/importer', 'data_utils/services', 'data_utils/sql_helpers'],
+      packages=['data_utils/databases', 'data_utils/importer', 'data_utils/services', 'data_utils/sql_helpers', 'data_utils/'],
       install_requires=[
           'pandas',
           'snowflake-connector-python',
