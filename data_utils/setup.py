@@ -17,4 +17,4 @@ setup(name='data_utils',
           'pysftp',
           'retrying'
       ],
-      zip_safe=False)
+      zip_safe=False) 
