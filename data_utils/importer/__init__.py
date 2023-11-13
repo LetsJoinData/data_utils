@@ -46,6 +46,7 @@ class SNOWFLAKE_LOADER:
                 os.remove(file_path)
 
         # Loading Stage file to table
+        add_file_to_snowflake_stage(self.cursor,file_path,db_stage)
         copy_snowflake_stage_file_to_table(cursor=self.cursor, 
                                         table=db_table, 
                                         stage=db_stage,
