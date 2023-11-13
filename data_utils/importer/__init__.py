@@ -10,10 +10,19 @@ TEMP_FOLDER = os.environ.get('TMP_FOLDER_PATH','.tmp')
 class SNOWFLAKE_LOADER:
     FILEPATH_COLUMN_ALIAS = 'DW_FILENAME'
     CREATED_AT_COLUMN_ALIAS = 'DW_CREATED_AT'
+    METADATA_COLUMNS_SCHEMA = {
+        "dw_filename": "varchar(2056)",
+        "dw_created_at": "timestamp",
+        "dw_updated_at": "timestamp default current_timestamp()"
+    }
 
 
     def __init__(self, cursor):
         self.cursor = cursor
+
+
+    def generate_metadata_table_definition(self):
+        ",\n".join( f"{column}  {column_definition}" for column, column_definition in METADATA_COLUMNS_SCHEMA.items())
 
 
     def _get_columns_to_load(self, local_file_path, delimiter='|'):
