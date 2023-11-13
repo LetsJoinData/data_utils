@@ -41,9 +41,6 @@ class SNOWFLAKE_LOADER:
     def snowflake_stage_and_load_csv_to_table(self, db_table, db_stage, file_path, db_schema=None, file_delimiter='|', delete_local_file=True):
         file_name = os.path.basename(file_path)
         insert_columns, value_columns = self._get_columns_to_load(file_path, file_delimiter)
-        if delete_local_file:
-            if os.path.exists(file_path):
-                os.remove(file_path)
 
         # Loading Stage file to table
         add_file_to_snowflake_stage(self.cursor,file_path,db_stage)
@@ -54,6 +51,10 @@ class SNOWFLAKE_LOADER:
                                         schema=db_schema,
                                         insert_columns=insert_columns,
                                         value_columns=value_columns)
+        
+        if delete_local_file:
+            if os.path.exists(file_path):
+                os.remove(file_path)
             
         logging.info(f"Successfully Loaded {file_name} to table")
 
