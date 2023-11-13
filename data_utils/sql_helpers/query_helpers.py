@@ -1,5 +1,5 @@
 import logging
-from data_utils.sql_helpers.templates import (SNOWFLAKE_LOAD_FILE_TO_STAGE, SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE,
+from data_utils.sql_helpers.templates import (SNOWFLAKE_LOAD_FILE_TO_STAGE, SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE,CREATE_SCHEMA
                                              SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE_WITH_COLUMNS_SPECIFIED)
 import os
 import logging
@@ -56,3 +56,9 @@ def copy_snowflake_stage_file_to_table(cursor, table, stage, stage_file_path, sc
                                                                                 value_columns=value_columns)
     execute_sql(cursor, sql)
     logging.info(f"Successfully loaded stage file to table. File:{stage_file_path}")
+
+
+def create_new_schema(cursor, schema, database=None):
+    schema_name = schema if not database else f"{database}.{schema}"
+    sql = CREATE_SCHEMA.format(schema=schema_name)
+    execute_sql(cursor, sql)
