@@ -1,5 +1,5 @@
 import os
-from databases import create_snowflake_engine, create_snowflake_connection_and_cursor
+from data_utils.databases import create_snowflake_engine, create_snowflake_connection_and_cursor
 
 
 ### Snowflake Credentials
