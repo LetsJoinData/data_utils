@@ -36,7 +36,7 @@ def add_file_to_snowflake_stage(cursor, file_path, stage, stage_folder=None) -> 
     folder = f"/{stage_folder}/" if stage_folder else "" 
     sql = SNOWFLAKE_LOAD_FILE_TO_STAGE.format(file_path=file_path, stage=stage, folder=folder)
     execute_sql(cursor, sql)
-    stage_file_path = "{}{}".format(stage_folder, os.path.basename(file_path))
+    stage_file_path = "{}{}".format(folder, os.path.basename(file_path))
     logging.info(f"Successfully staged file to snowflake. File:{stage_file_path}")
     return stage_file_path
 
