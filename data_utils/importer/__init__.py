@@ -22,8 +22,8 @@ class SNOWFLAKE_LOADER:
 
 
     def generate_metadata_table_definition(self):
-        ",\n".join( f"{column}  {column_definition}" for column, column_definition in self.METADATA_COLUMNS_SCHEMA.items())
-
+        meta_def = ",\n".join( f"{column}  {column_definition}" for column, column_definition in self.METADATA_COLUMNS_SCHEMA.items())
+        return meta_def
 
     def _get_columns_to_load(self, local_file_path, delimiter='|'):
         metadata_columns = ['DW_FILENAME','DW_CREATED_AT']
