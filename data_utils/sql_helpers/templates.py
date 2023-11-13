@@ -1,5 +1,5 @@
 
-SNOWFLAKE_LOAD_FILE_TO_STAGE = "put file://{file_path} @{stage}"
+SNOWFLAKE_LOAD_FILE_TO_STAGE = "put file://{file_path} @{stage}{folder}"
 
 SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE = "copy into {table} from @{stage}/{stage_file_path}"
 

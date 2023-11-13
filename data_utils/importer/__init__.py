@@ -43,11 +43,11 @@ class SNOWFLAKE_LOADER:
         insert_columns, value_columns = self._get_columns_to_load(file_path, file_delimiter)
 
         # Loading Stage file to table
-        add_file_to_snowflake_stage(self.cursor,file_path,db_stage)
+        stage_file_path = add_file_to_snowflake_stage(self.cursor,file_path,db_stage)
         copy_snowflake_stage_file_to_table(cursor=self.cursor, 
                                         table=db_table, 
                                         stage=db_stage,
-                                        stage_file_path=file_path,
+                                        stage_file_path=stage_file_path,
                                         schema=db_schema,
                                         insert_columns=insert_columns,
                                         value_columns=value_columns)
