@@ -9,6 +9,7 @@ def setup_logging(module=None, level=logging.INFO):  # pragma: no cover
     logger.setLevel(level)
     stream_handler = logging.StreamHandler(sys.stderr)
     stream_handler.setLevel(level)
+    formatter = logging.Formatter('%(name)s - %(processName)s - %(levelname)s - %(message)s')
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
     return logger
