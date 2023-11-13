@@ -1,8 +1,9 @@
 import logging
 from data_utils.sql_helpers.templates import (SNOWFLAKE_LOAD_FILE_TO_STAGE, SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE,CREATE_SCHEMA,
-                                             SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE_WITH_COLUMNS_SPECIFIED)
+                                             SNOWFLAKE_COPY_STAGE_FILE_TO_TABLE_WITH_COLUMNS_SPECIFIED, CREATE_STAGE, CREATE_TEMPORARY_STAGE)
 import os
 import logging
+from uuid import uuid1
 
 
 def execute_sql(cursor, sql, sql_vars=None):
@@ -61,4 +62,15 @@ def copy_snowflake_stage_file_to_table(cursor, table, stage, stage_file_path, sc
 def create_new_schema(cursor, schema, database=None):
     schema_name = schema if not database else f"{database}.{schema}"
     sql = CREATE_SCHEMA.format(schema=schema_name)
+    execute_sql(cursor, sql)
+
+
+def create_stage(cursor, schema, stage_name=None, temporary_stage=False, format_params=''):
+    temp_stage_name = str(uuid1()).replace('-','')
+    stage_name = stage_name or temp_stage_name
+
+    if not stage_name or temporary_stage:
+        sql = CREATE_TEMPORARY_STAGE.format(params=format_params, schema=schema, stage_name=stage_name)
+    else:
+        sql = CREATE_STAGE.format(params=format_params, schema=schema, stage_name=stage_name)
     execute_sql(cursor, sql)

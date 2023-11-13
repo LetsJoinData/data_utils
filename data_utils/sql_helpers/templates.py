@@ -13,3 +13,13 @@ SELECT
 {value_columns}
 FROM @{stage}/{stage_file_path}
 )"""
+
+CREATE_STAGE = """
+create stage if not exists {schema}.{stage_name}
+{params};
+"""
+
+CREATE_TEMPORARY_STAGE = """
+create or replace temp stage {schema}.{stage_name}
+{params};
+"""
