@@ -33,7 +33,7 @@ def query_all_by_key(cursor, sql, key):
 
 
 def add_file_to_snowflake_stage(cursor, file_path, stage, stage_folder=None) -> str:
-    folder = f"/{stage_folder}/" if stage_folder or "" 
+    folder = f"/{stage_folder}/" if stage_folder else "" 
     sql = SNOWFLAKE_LOAD_FILE_TO_STAGE.format(file_path=file_path, stage=stage, folder=stage_folder)
     execute_sql(cursor, sql)
     stage_file_path = "{}{}".format(stage_folder, os.path.basename(file_path))
