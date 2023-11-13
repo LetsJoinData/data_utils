@@ -22,7 +22,7 @@ class SNOWFLAKE_LOADER:
 
 
     def generate_metadata_table_definition(self):
-        ",\n".join( f"{column}  {column_definition}" for column, column_definition in METADATA_COLUMNS_SCHEMA.items())
+        ",\n".join( f"{column}  {column_definition}" for column, column_definition in self.METADATA_COLUMNS_SCHEMA.items())
 
 
     def _get_columns_to_load(self, local_file_path, delimiter='|'):
