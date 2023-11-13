@@ -74,3 +74,5 @@ def create_stage(cursor, schema, stage_name=None, temporary_stage=False, format_
     else:
         sql = CREATE_STAGE.format(params=format_params, schema=schema, stage_name=stage_name)
     execute_sql(cursor, sql)
+
+    return stage_name
